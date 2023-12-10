@@ -53,6 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
     "/assets/music/music-3.mp3",
   ];
 
+  // Platform
+  const platform = navigator.userAgent.match(
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+  )
+    ? "mobile"
+    : "desktop";
+
   // Game state
   let state = {
     score: 0,
@@ -76,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     candies: 0,
     candiesRequired: 5,
     musicPlayer: null,
+    playerBottomPosition: platform === "mobile" ? "20%" : "5%",
   };
 
   // Settings
@@ -100,13 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   let availableCheats = { ...cheats };
   let activeCheatCode = [];
-
-  // Platform
-  const platform = navigator.userAgent.match(
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-  )
-    ? "mobile"
-    : "desktop";
 
   /**
    * Load the game settings from localStorage.
@@ -308,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const bullet = document.createElement("div");
       bullet.className = "bullet";
       bullet.style.left = elements.player.style.left;
-      bullet.style.bottom = 0;
+      bullet.style.bottom = playerBottomPosition;
       elements.gameContainer.appendChild(bullet);
 
       bullet.style.animation = `shoot 2s linear`;
@@ -767,6 +768,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     availableCheats = { ...cheats };
     activeCheatCode = [];
+
+    elements.player.style.bottom = state.playerBottomPosition;
+    elements.player.style.left = "50%";
   };
 
   /**
@@ -922,7 +926,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
       if (!state.santaIsVisible) {
         const santa = document.createElement("img");
-        santa.src = "santas.svg";
+        santa.src = "/assets/images/santas.svg";
         santa.className = "santas";
         elements.gameContainer.appendChild(santa);
 
@@ -1019,7 +1023,7 @@ document.addEventListener("DOMContentLoaded", () => {
         elements.player.style.left = mouseX + "px";
       }
     });
-    elements.shootButton.addEventListener("click", shootCandies);
+    elements.shootButton.addEventListener("touchstart", shootCandies);
   }
 
   // Desktop cheat codes
