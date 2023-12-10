@@ -41,13 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sounds
   const sounds = {
-    giftCollectSound: new Audio("gift-collect.wav"),
-    bombImpactSound: new Audio("bomb-impact.wav"),
-    shootSound: new Audio("shoot.wav"),
+    giftCollectSound: new Audio("/assets/sounds/gift-collect.wav"),
+    bombImpactSound: new Audio("/assets/sounds/bomb-impact.wav"),
+    shootSound: new Audio("/assets/sounds/shoot.wav"),
   };
 
   // Tracks
-  const tracks = ["music-1.mp3", "music-2.mp3", "music-3.mp3"];
+  const tracks = [
+    "/assets/music/music-1.mp3",
+    "/assets/music/music-2.mp3",
+    "/assets/music/music-3.mp3",
+  ];
 
   // Game state
   let state = {

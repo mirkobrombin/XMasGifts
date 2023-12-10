@@ -39,7 +39,7 @@ body {
 .gift {
     width: 40px;
     height: 40px;
-    background-image: url('gift.png');
+    background-image: url('/assets/images/gift.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -49,7 +49,7 @@ body {
 .mine {
     width: 40px;
     height: 40px;
-    background-image: url('mine.png');
+    background-image: url('/assets/images/mine.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -59,7 +59,7 @@ body {
 .grinch {
     width: 40px;
     height: 40px;
-    background-image: url('grinch.png');
+    background-image: url('/assets/images/grinch.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -69,7 +69,7 @@ body {
 .life {
     width: 40px;
     height: 40px;
-    background-image: url('life.png');
+    background-image: url('/assets/images/life.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -79,7 +79,7 @@ body {
 .candy {
     width: 40px;
     height: 40px;
-    background-image: url('candy.png');
+    background-image: url('/assets/images/candy.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -89,7 +89,7 @@ body {
 .bullet {
     width: 40px;
     height: 40px;
-    background-image: url('candy.png');
+    background-image: url('/assets/images/candy.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -129,7 +129,7 @@ body {
 #player {
     width: 50px;
     height: 50px;
-    background-image: url('claus.png');
+    background-image: url('/assets/images/claus.png');
     background-size: cover;
     border-radius: 50%;
     position: absolute;
@@ -230,7 +230,7 @@ body {
     top: 0;
     left: 0;
     pointer-events: none;
-    background-image: url('roofs.png');
+    background-image: url('/assets/images/roofs.png');
     background-position: bottom;
     background-repeat: repeat-x;
     background-size: 50vw;
