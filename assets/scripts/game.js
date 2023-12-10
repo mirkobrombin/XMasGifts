@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const { isGameRunning, speedMultiplier } = state;
     if (isGameRunning) {
       const isMine = Math.random() < state.mineDropRisk;
-      const islife = Math.random() < state.lifeDropRisk;
+      const islife = Math.random() < state.lifeDropRisk && state.lifes < 3;
       const isCandy = Math.random() < state.candyDropRisk;
       const isGrinch =
         state.currentLevel > 2 && Math.random() < state.grinchDropRisk;
@@ -467,6 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const collectLife = (life) => {
     const { isGameRunning, lifes } = state;
     if (isGameRunning) {
+      if (lifes === 3) return;
       state.lifes++;
       updateLifes();
 
@@ -554,8 +555,10 @@ document.addEventListener("DOMContentLoaded", () => {
    * Advance to the next game level, increasing the speed, the gifts required, and the player's lifes.
    */
   const nextLevel = () => {
-    state.lifes++;
-    updateLifes();
+    if (state.lifes < 3) {
+      state.lifes++;
+      updateLifes();
+    }
 
     state.currentLevel++;
     state.giftsRequired = Math.floor(
