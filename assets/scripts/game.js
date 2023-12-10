@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const bullet = document.createElement("div");
       bullet.className = "bullet";
       bullet.style.left = elements.player.style.left;
-      bullet.style.bottom = playerBottomPosition;
+      bullet.style.bottom = state.playerBottomPosition;
       elements.gameContainer.appendChild(bullet);
 
       bullet.style.animation = `shoot 2s linear`;
