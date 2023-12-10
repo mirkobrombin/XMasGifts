@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>XMas Gifts</title>
+</head>
+
+<body>
+    <div id="game-container" class="night">
+        <div id="roofs" class="roofs"></div>
+        <div id="player"></div>
+
+        <div id="gift-container"></div>
+        <div id="mine-container"></div>
+        <div id="candy-container"></div>
+        <div id="grinch-container"></div>
+
+        <div id="game-messages" class="hidden"></div>
+
+        <div class="stats">
+            <div class="stats-item" id="score">
+                <img src="gift.png" width="24" />
+                <span>
+                    <b id="score-value">0</b>/<small id="score-req-value">10</small>
+                </span>
+            </div>
+            <div class="stats-item" id="level">
+                Level <span id="level-value">1</span>
+            </div>
+            <div class="stats-item" id="lifes">
+                <img src="life.png" width="24" /> <span id="lifes-value">3</span>
+            </div>
+            <div class="stats-item" id="candies">
+                <img src="candy.png" height="24" /> <span id="candies-value">0</span>
+            </div>
+        </div>
+
+        <div class="stats stats--controls">
+            <div class="stats-item mobile-only clickable">
+                <span class="material-symbols-outlined" id="pause-status"> pause </span>
+            </div>
+            <div class="stats-item clickable">
+                <span class="material-symbols-outlined" id="music-status"> music_note </span>
+            </div>
+            <div class="stats-item clickable">
+                <span class="material-symbols-outlined" id="sound-status"> volume_up </span>
+            </div>
+        </div>
+
+        <div class="stats stats--controls stats--actions mobile-only">
+            <div class="stats-item clickable">
+                <span class="material-symbols-outlined" id="shoot-button"> local_fire_department </span>
+            </div>
+        </div>
+
+        <div class="page" id="menu">
+            <div class="page-title">
+                <h1>XMas Gifts</h1>
+                <p>Collect the gifts and avoid the bombs!</p>
+            </div>
+            <div class="menu">
+                <button id="play-button">Play</button>
+                <button id="instructions-button">Instructions</button>
+                <button id="settings-button">Settings</button>
+                <button id="credits-button">Credits</button>
+            </div>
+        </div>
+
+        <div class="page hidden" id="pause">
+            <div class="page-title">
+                <h1>Pause</h1>
+            </div>
+            <div class="menu">
+                <button id="resume-button">Resume</button>
+                <button id="back-button">Quit</button>
+            </div>
+        </div>
+
+        <div class="page hidden" id="credits">
+            <div class="page-title">
+                <h1>Credits</h1>
+                <p>Created by <a href="https://github.com/mirkobrombin" target="_blank">Mirko Brombin</a></p>
+                <p>Music by <a href="https://pixabay.com/" target="_blank">Pixabay</a></p>
+            </div>
+            <div class="menu">
+                <button id="back-button">Back</button>
+            </div>
+        </div>
+
+        <div class="page hidden" id="settings">
+            <div class="page-title">
+                <h1>Settings</h1>
+            </div>
+            <div class="settings">
+                <div class="settings-item">
+                    <label for="settings-music">Music</label>
+                    <select id="settings-music">
+                        <option value="on">On</option>
+                        <option value="off">Off</option>
+                    </select>
+                </div>
+                <div class="settings-item">
+                    <label for="settings-sound">Sound</label>
+                    <select id="settings-sound">
+                        <option value="on">On</option>
+                        <option value="off">Off</option>
+                    </select>
+                </div>
+                <div class="settings-item desktop-only">
+                    <label for="settings-fullscreen">Fullscreen</label>
+                    <select id="settings-fullscreen">
+                        <option value="on">On</option>
+                        <option value="off">Off</option>
+                    </select>
+                </div>
+            </div>
+            <div class="menu">
+                <button id="back-button">Back</button>
+            </div>
+        </div>
+
+        <div class="page hidden" id="instructions">
+            <div class="page-title">
+                <h1>Instructions</h1>
+            </div>
+            <div class="carousel">
+                <div class="carousel-pages">
+                    <div class="carousel-pages-page carousel-pages-page--active">
+                        <h2>Controls</h2>
+                        <p class="desktop-only">Use your <span class="mouse"></span> to move the player left and right.
+                        </p>
+                        <p class="mobile-only">Use the <b>touch</b> to move the player left and right.</p>
+                        <p class="desktop-only">Press <b>Space</b> to shoot and <b>P</b> to pause the game.</p>
+                    </div>
+
+                    <div class="carousel-pages-page">
+                        <h2>Collect the gifts</h2>
+                        <p>Collect all the <img src="gift.png" width="38" />, each level requires you to collect more
+                            gifts and the game gets faster.</p>
+                        <p>If you miss a gift, you lose 1 life.</p>
+                    </div>
+
+                    <div class="carousel-pages-page">
+                        <h2>Collect the candies</h2>
+                        <p>The <img src="candy.png" height="38" /> can be used as bullets to shoot the bombs and the
+                            grinch. Can also be used to collect gifts and lifes.</p>
+                        <p>Press Space to shoot.</p>
+                    </div>
+
+                    <div class="carousel-pages-page">
+                        <h2>Be careful!</h2>
+                        <p>Avoid the <img src="mine.png" width="38" /> and the <img src="grinch.png" width="38" />.
+                            If you hit a bomb or the grinch, you lose a life. If you lose all your lifes, the game is
+                            over.
+                        </p>
+                        <p>If you hit the grinch, you lose 30% of your score.</p>
+                    </div>
+
+                    <div class="carousel-pages-page">
+                        <h2>Good luck!</h2>
+                        <p>Now that you know the rules, you are ready to play!</p>
+                        <p>Click the <b>Play</b> button to start the game.</p>
+                    </div>
+                </div>
+                <div class="carousel-dots"></div>
+                <div class="carousel-controls">
+                    <button class="carousel-controls-button carousel-controls-button--prev" class="hidden"><span
+                            class="material-symbols-outlined"> arrow_back </span></button>
+                    <button class="carousel-controls-button carousel-controls-button--next"><span
+                            class="material-symbols-outlined"> arrow_forward </span></button>
+                </div>
+            </div>
+            <div class="menu">
+                <button id="back-button">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page hidden" id="gameover-menu">
+        <div class="page-title">
+            <h1>Game Over</h1>
+            <p>Your score is <span id="final-score"></span></p>
+        </div>
+        <div class="menu">
+            <button id="share-button">Share on Twitter</button>
+            <button id="play-again-button">Play Again</button>
+            <button id="back-button">Quit</button>
+        </div>
+    </div>
+    <div class="snowflakes"></div>
+    <div class="comets"></div>
+    <script src="snow.js"></script>
+    <script src="carousel.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
